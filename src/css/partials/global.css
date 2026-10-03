@@ -1,0 +1,125 @@
+/* Global styles */
+
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--bs-body-font-family);
+  font-size: 18px;
+  margin: 0;
+}
+
+a:link,
+a:visited {
+  color: var(--bs-link-color);
+}
+
+a:hover {
+  color: var(--bs-link-hover-color);
+}
+
+
+/* Skip links styling */
+.skip-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.skip-links a {
+  font-size: 11px;
+  font-size: 0.6875rem;
+  position: absolute;
+  right: 20px;
+  top: -200px;
+  z-index: -1;
+}
+
+.skip-links a:focus {
+  top: 2px;
+  z-index: 9999;
+}
+
+/* Title and logo styling */
+
+.site-title {
+  display: flex;
+  align-items: center;
+}
+.site-title > span {
+  font-size: 1rem;
+  margin-left: 0.3em;
+}
+
+.logo {
+  height: 0;
+  width: 0;
+  margin: 0.5em;
+  display: inline-block;
+  border-top: 34px solid var(--bs-light-green);
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+}
+
+.global-header {
+  background-color: var(--bs-black);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  fill: white;
+}
+
+.global-header a:link, 
+.global-header a:visited,
+#park-header a:link,
+#park-header a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.global-header .icon {
+  width: 20px;
+  height: 20px; 
+  /* I see the reason things werent lining up is simply because the icons were too big */
+}
+
+.global-header__right {
+  display: flex;
+  align-items: center;
+  /* Moving the combined search/menu to vertical center */
+}
+
+.global-header__right .search-icon {
+  /* I see why the icons have classes now. They are to complex to reference
+  just with semantics */
+  padding: 0 1rem;
+  margin-top: 6px;
+  /* Shoves aside and visually aligns the icon */
+}
+
+.global-header__right button {
+  /* This is the menu button */
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 1.2em;
+  align-items: center;
+  /* align-items being thrown up by the Explore this Park being visable */
+  text-transform: uppercase;
+  border-left: 1px solid var(--bs-grey-5);
+}
+
+.global-header__right button .icon {
+  margin-bottom: -4px; 
+  /* LETS GO SOLVED THE INCONSISTENCY */
+}
+
+/* the reference html and css does not address global-nav, so im gonna make it invisable */
+.global-nav {
+  display: none;
+}

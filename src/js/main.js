@@ -3,8 +3,8 @@ import { getLinkData } from "./parkService.mjs";
 import { setHeaderFooter } from "./setHeaderFooter.mjs";
 import { mediaCardTemplate } from "./templates.mjs";
 
-const parkData = getParkData();
-const linkData = getLinkData();
+const parkData = await getParkData();
+const linkData = await getLinkData(parkData.images);
 const disclaimer = document.querySelector(".disclaimer > a");
 disclaimer.href = parkData.url;
 disclaimer.innerHTML = parkData.fullName;
@@ -25,7 +25,9 @@ function setInfo() {
     });
 }
 
-function renderPage() {
+async function renderPage() {
+    const parkData = await getParkData();
+
     setHeaderFooter(parkData);
     setIntro(parkData);
     setInfo();
