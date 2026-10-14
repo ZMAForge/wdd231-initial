@@ -3,7 +3,6 @@ import { getLinkData } from "./parkService.mjs";
 import { setHeaderFooter } from "./setHeaderFooter.mjs";
 import { mediaCardTemplate } from "./templates.mjs";
 
-const parkData = await getParkData();
 const linkData = await getLinkData(parkData.images);
 const disclaimer = document.querySelector(".disclaimer > a");
 disclaimer.href = parkData.url;
@@ -27,7 +26,7 @@ function setInfo() {
 
 async function renderPage() {
     const parkData = await getParkData();
-
+    
     setHeaderFooter(parkData);
     setIntro(parkData);
     setInfo();
