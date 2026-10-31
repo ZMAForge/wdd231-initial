@@ -1,9 +1,61 @@
 const baseUrl = "https://developer.nps.gov/api/v1/";
 const apiKey = import.meta.env.VITE_NPS_API_KEY;
 
-export async function getParkData() {
-  const parkData = await getJson("parks?parkCode=glac");
+import { AlertTemplate, visitorCenterTemplate, activityTemplate } from "./templates.mjs";
+
+export async function getParkData(parkCode) {
+  let search = `parks?parkCode=${parkCode}`;
+  const parkData = await getJson(search);
   return parkData.data[0];
+}
+
+export async function getAlertData(parkCode) {
+  let search = `alerts?parkCode=${parkCode}`;
+  const alertData = await getJson(search);
+  return alertData.data;
+}
+
+export function setAlerts(data) {
+  const alertbox = document.querySelector("#alerts ul");
+  let alertArray = data.map(AlertTemplate);
+  console.log(alertArray);
+  alertArray.forEach(alert => {
+      alertbox.appendChild(alert);
+  });
+}
+
+export async function getVisitorCenterData(parkCode)
+{
+  let search = `visitorcenters?parkCode=${parkCode}`;
+  const centerData = await getJson(search);
+  return centerData.data;
+}
+
+export function setVisitorCenters(data)
+{
+  const visitorBox = document.querySelector(".visitor details ul");
+  let visitorArray = data.map(visitorCenterTemplate);
+  console.log(visitorArray);
+  visitorArray.forEach(visitor => {
+    visitorBox.appendChild(visitor);
+  })
+}
+
+export async function getActivitiesData(parkCode)
+{
+  let search = `activities?id=${parkCode}`;
+  const activityData = await getJson(search);
+  return activityData.data;
+}
+
+export function setActivities(data)
+{
+  const activityBox = document.querySelector(".activities details ul");
+  let activityArray = data.map(activityTemplate);
+  console.log(activityArray);
+  activityArray.forEach(activity => {
+    activityBox.appendChild(activity);
+  })
 }
 
 async function getJson(url) {

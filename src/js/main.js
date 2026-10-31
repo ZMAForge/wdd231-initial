@@ -2,7 +2,7 @@ import { getParkData } from "./parkService.mjs";
 import { getLinkData } from "./parkService.mjs";
 import { setHeaderFooter } from "./setHeaderFooter.mjs";
 import { mediaCardTemplate } from "./templates.mjs";
-
+export const parkCode = "glac";
 
 function setIntro(data) {
     console.log("SetIntro Called", data)
@@ -23,7 +23,7 @@ function setInfo(data) {
 }
 
 async function renderPage() {
-    const parkData = await getParkData();
+    const parkData = await getParkData(parkCode);
     const linkData = await getLinkData(parkData.images);
     
     const disclaimer = document.querySelector(".disclaimer > a");

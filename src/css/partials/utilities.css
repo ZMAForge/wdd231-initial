@@ -12,10 +12,23 @@
   overflow: hidden;
 }
 
-svg {
+.alert-information {
+  color: var(--alert-information);
+}
+.alert-danger {
+  color: var(--alert-danger);
+}
+.alert-closure {
+  color: var(--alert-closure);
+}
+.alert-caution {
+  color: var(--alert-caution);
+}
+
+/* svg {
   background-color: var(--bs-black);
   fill: white;
-}
+} */
 
 @media screen and (min-width: 700px) {
   .info {
