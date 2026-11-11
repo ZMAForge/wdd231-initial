@@ -1,15 +1,15 @@
 import spritePath from '../images/sprite.symbol.svg';
 
 export function mediaCardTemplate(info) {
-    let card = document.createElement("article");
+    const card = document.createElement("article");
     card.innerHTML = `<a href="${info.link}"><img src="${info.image}" alt=""></a>
           <a href="${info.link}"><h2>${info.name}</h2></a>
-          <p>${info.description}</p>`
+          <p>${info.description}</p>`;
     return card;
 }
 
 export function AlertTemplate(info) {
-    let alert = document.createElement("li");
+    const alert = document.createElement("li");
     alert.classList.add(convertCategoryToClass(info), "alerts");
     alert.innerHTML = `
     <svg class="icon" focusable="false" aria-hidden="true"><use xlink:href="${spritePath}#${convertCategoryToClass(info)}"></use></svg>
@@ -39,7 +39,7 @@ function convertCategoryToClass(info) {
 
 export function visitorCenterTemplate(data)
 {
-    let visit = document.createElement("li");
+    const visit = document.createElement("li");
     visit.classList.add("visit-center");
     visit.innerHTML = `
         <h3>${data.name}</h3>
@@ -50,7 +50,7 @@ export function visitorCenterTemplate(data)
 
 export function activityTemplate(data)
 {
-    let visit = document.createElement("li");
+    const visit = document.createElement("li");
     visit.classList.add("activity");
     visit.innerHTML = `
         <p>${data.name}</p>`;

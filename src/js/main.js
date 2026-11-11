@@ -5,17 +5,17 @@ import { mediaCardTemplate } from "./templates.mjs";
 export const parkCode = "glac";
 
 function setIntro(data) {
-    console.log("SetIntro Called", data)
+    console.log("SetIntro Called", data);
     const intro = document.querySelector(".intro");
-    let content = `<h1>${data.fullName}</h1>
-    <p>${data.description}</p>`
+    const content = `<h1>${data.fullName}</h1>
+    <p>${data.description}</p>`;
     intro.innerHTML = content;
 }
 
 function setInfo(data) {
-    console.log("SetInfo Called", data)
+    console.log("SetInfo Called", data);
     const infoBox = document.querySelector(".info");
-    let cardArray = data.map(mediaCardTemplate);
+    const cardArray = data.map(mediaCardTemplate);
     console.log(cardArray);
     cardArray.forEach(card => {
         infoBox.appendChild(card);
